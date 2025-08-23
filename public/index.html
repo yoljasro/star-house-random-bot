@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Star House — Random Winners</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+
+  <!-- Libs -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  <canvas id="bg"></canvas>
+
+  <main class="main">
+    <header class="brandbar">
+      <div class="brand-text">
+        <span class="brand-name">STAR HOUSE</span>
+        <!-- <span class="brand-tagline">Build smart • Live better</span> -->
+      </div>
+    </header>
+
+    <h1 class="title">Random Winners</h1>
+    <p class="subtitle">Tugmani bosing — g‘oliblar ketma-ket aniqlanadi</p>
+
+    <button id="startBtn" class="big-button" disabled>
+      <span class="shine"></span>
+      <span class="text">Pick Winner (1/5)</span>
+    </button>
+
+    <div id="status" class="status"></div>
+
+    <section class="layout">
+      <section id="stage" class="stage">
+        <div class="stage-watermark">STAR • HOUSE</div>
+        <div id="ticker" class="ticker">Tayyorlanmoqda…</div>
+        <div id="result" class="result hidden"></div>
+      </section>
+
+      <aside class="side panel">
+        <h3 class="side-title">🏆 G‘oliblar</h3>
+        <ol id="winnersList" class="winners-list"></ol>
+      </aside>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
