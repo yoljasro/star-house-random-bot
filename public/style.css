@@ -15,10 +15,12 @@
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
-  margin:0;color:var(--text);
+  margin:0;
+  color:var(--text);
   font-family:"Plus Jakarta Sans",system-ui,-apple-system,Segoe UI,Arial,sans-serif;
   background: radial-gradient(1200px 620px at 50% -10%, var(--bg-2), var(--bg-1));
-  overflow:hidden;
+  overflow-x:hidden;   /* yon scrollni bloklaymiz */
+  overflow-y:auto;     /* pastga scroll ishlaydi */
 }
 #bg{position:fixed;inset:0;z-index:-2}
 
@@ -30,7 +32,15 @@ body::before{
     linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0/28px 28px;
 }
 
-.main{height:100vh;display:flex;flex-direction:column;align-items:center;gap:14px;padding:18px;text-align:center}
+.main{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+  padding:18px;
+  text-align:center
+}
 
 /* brand */
 .brandbar{
@@ -84,7 +94,9 @@ body::before{
   display:grid; grid-template-columns: minmax(540px,1fr) 400px; gap:18px; align-items:start;
   width:min(1200px,96vw); margin-top:6px;
 }
-@media (max-width:1120px){ .layout{grid-template-columns:1fr} }
+@media (max-width:1120px){
+  .layout{grid-template-columns:1fr}
+}
 
 /* stage */
 .stage{
@@ -198,4 +210,26 @@ body::before{
   grid-column:2; color:var(--muted); line-height:1.4;
   word-break:break-word;
   display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+}
+
+/* 📱 Responsiv qo'shimchalar */
+@media (max-width:768px){
+  .layout{
+    grid-template-columns:1fr;
+  }
+  .stage,
+  .panel{
+    height:auto;
+    max-height:none;
+  }
+  .main{
+    padding:12px;
+  }
+  .title{
+    font-size:28px;
+  }
+  .big-button{
+    padding:14px 22px;
+    font-size:16px;
+  }
 }
